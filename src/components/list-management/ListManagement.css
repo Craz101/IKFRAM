@@ -1,0 +1,64 @@
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.app-content {
+    padding: 16px;
+    width: auto;
+}
+
+.app-content p {
+    color: var(--text-color);
+}
+
+.fetch-game-button {
+    margin: 10px;
+}
+
+.account-bar {
+    background: var(--main-color);
+    display: flex;
+}
+
+.app-link {
+    color: #61dafb;
+}
+
+select {
+    background-color: var(--main-color);
+    border-color: var(--color-background);
+    color: var(--text-color);
+
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

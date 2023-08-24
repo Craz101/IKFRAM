@@ -1,0 +1,13 @@
+.game-box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 1rem;
+    width: auto;
+}
+
+.game-list-filters {
+    display: flex;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}

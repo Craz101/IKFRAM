@@ -1,0 +1,36 @@
+.game-entry {
+    display: flex;
+    justify-content: flex-start;
+    background-color: var(--main-color);
+    cursor: pointer;
+}
+.game-details {
+    width: 100%;
+}
+
+.game-text {
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    grid-auto-rows: auto;
+    grid-gap: 1rem;
+    padding: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.edit-button button {
+    color: var(--text-color);
+    border-color: var(--color-background);
+    background-color: var(--color-background);
+}
+
+.game-image {
+    display: block;
+    width: 100%;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-shadow: 0 0 5px #000000;
+    color: var(--text-color);
+}

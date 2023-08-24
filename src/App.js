@@ -1,25 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useEffect, useState} from "react";
+import ListManagement from "./components/list-management/ListManagement";
+import {auth} from "./Firebase";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        // Firebase auth state listener
+        const unsubscribe = auth.onAuthStateChanged((loggedInUser) => {
+            if (loggedInUser) {
+                setUser(loggedInUser);
+            } else {
+                setUser(null);
+            }
+        });
+        return () => unsubscribe();
+    }, []);
+
+    return (
+        <ListManagement/>
+    );
 }
 
 export default App;

@@ -13,6 +13,7 @@
   }
 }
 
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -24,8 +25,33 @@
   color: white;
 }
 
-.App-link {
+.app-content {
+  padding: 16px;
+  width: auto;
+}
+
+.app-content p {
+  color: var(--text-color);
+}
+
+.fetch-game-button {
+  margin: 10px;
+}
+
+.account-bar {
+  background: var(--main-color);
+  display: flex;
+}
+
+.app-link {
   color: #61dafb;
+}
+
+select {
+  background-color: var(--main-color);
+  border-color: var(--color-background);
+  color: var(--text-color);
+
 }
 
 @keyframes App-logo-spin {
