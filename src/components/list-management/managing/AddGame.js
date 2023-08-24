@@ -1,7 +1,7 @@
 import './AddGame.css';
 import React, {useState} from "react";
 import Modal from "../../../modal/Modal";
-import { auth } from '../../../Firebase';
+import {auth} from '../../../Firebase';
 
 const AddGame = (props) => {
     const initialUserInput = {
@@ -11,12 +11,23 @@ const AddGame = (props) => {
         'image-url': '',
         'currently-playing': false,
         'game-completed': false,
-        'user-id': auth.currentUser.email
+        'user-id': auth.currentUser?.email
     };
+
     const [userInput, setUserInput] = useState(initialUserInput);
     const [isValid, setIsValid] = useState(true);
     const resetHandler = () => {
         setUserInput(initialUserInput);
+    }
+
+    if (!auth.currentUser) {
+        return (
+            <Modal onClose={props.onClose}>
+                <div className='new-game'>
+                    <h1>You need to be logged in to create a new game</h1>
+                    <button onClick={props.onClose}>Close</button>
+                </div>
+            </Modal>);
     }
 
     const inputChangeHandler = (input, value) => {
@@ -100,7 +111,7 @@ const AddGame = (props) => {
                         </div>
                         <button type='submit'> Add Game</button>
                         <button onClick={resetHandler} type='reset'> Clear</button>
-                        <button onClick={props.onClose}> Cancel</button>
+                        <button onClick={props.onClose}>Cancel</button>
                     </div>
                 </form>
             </div>

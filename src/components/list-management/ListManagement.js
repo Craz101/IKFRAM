@@ -17,7 +17,7 @@ function ListManagement() {
     const fetchGameListHandler = useCallback(async () => {
         try {
             setIsLoading(true);
-            const response = await fetch('https://ikfram-6bb34-default-rtdb.europe-west1.firebasedatabase.app/gamelist.json');
+            const response = await fetch('https://ikfram-6bb34-default-rtdb.europe-west1.firebasedatabase.app/' + auth.currentUser.uid + '/gamelist.json');
             if (!response.ok) {
                 throw new Error('Error loading games');
             }
@@ -49,7 +49,7 @@ function ListManagement() {
 
     async function storeGameHandler(game) {
         try {
-            const response = await fetch('https://ikfram-6bb34-default-rtdb.europe-west1.firebasedatabase.app/gamelist.json', {
+            const response = await fetch('https://ikfram-6bb34-default-rtdb.europe-west1.firebasedatabase.app/' + auth.currentUser.uid + '/gamelist.json', {
                 method: 'POST',
                 body: JSON.stringify(game),
                 headers: {
