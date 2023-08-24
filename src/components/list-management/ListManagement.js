@@ -5,6 +5,7 @@ import React, {useState, useEffect, useCallback} from "react";
 import GameList from "./game-lists/GameList"
 import AccountBar from "../AccountBar";
 import GameListContext from "../../context/GameListContext";
+import {auth} from "../../Firebase";
 
 function ListManagement() {
 
@@ -25,14 +26,14 @@ function ListManagement() {
 
             for (const key in returnedData) {
                 loadedGameList.push({
-                    id: key,
+                    key: key,
                     name: returnedData[key].name,
                     genre: returnedData[key].genre,
                     length: returnedData[key].length,
                     imageUrl: returnedData[key].imageUrl,
                     currentlyPlaying: returnedData[key].currentlyPlaying,
                     completed: returnedData[key].completed
-                })
+                });
             }
             setGameList(loadedGameList);
         } catch (error) {
@@ -77,15 +78,19 @@ function ListManagement() {
         >
             <div className='account-bar'>
                 <AccountBar/>
+                <p></p>
             </div>
             <div className='app-content'>
                 <button onClick={openNewGameList}> Add New Game</button>
                 <button style={{marginLeft: "16px"}} onClick={fetchGameListHandler}> Fetch Game List</button>
-                {!isLoading && error && <p>{error}</p>}
-                {newGameEntry && <AddGame onSaveGameData={storeGameHandler} onClose={closeNewGameList}/>}
+                <div className='status-message'>
+                    {!isLoading && error && <p>{error}</p>}
+                    {isLoading && <p>Loading Games...</p>}
+                </div>
                 {!isLoading && gameList.length > 0 && <GameList gameList={gameList}/>}
-                {isLoading && <p>Loading Games...</p>}
                 {!isLoading && gameList.length === 0 && !error && <p>No Games Found</p>}
+                {newGameEntry && <AddGame onSaveGameData={storeGameHandler} onClose={closeNewGameList}/>}
+
             </div>
         </GameListContext.Provider>
     );

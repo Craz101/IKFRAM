@@ -47,11 +47,15 @@
     color: #61dafb;
 }
 
+.status-message {
+    background-color: var(--main-color);
+    width: 10%;
+}
+
 select {
     background-color: var(--main-color);
     border-color: var(--color-background);
     color: var(--text-color);
-
 }
 
 @keyframes App-logo-spin {

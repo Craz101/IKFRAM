@@ -2,6 +2,7 @@ import './AccountBar.css';
 import Login from "./account/Login";
 import {useState} from "react";
 import Register from "./account/Register";
+import { auth } from '../Firebase';
 
 function AccountBar() {
     let enteredLoginData = '';
@@ -35,9 +36,18 @@ function AccountBar() {
         console.log(enteredRegisterData)
     }
 
-    function logOut() {
+    async function logOut() {
         enteredLoginData = null;
+        await auth.signOut();
     }
+
+    const isAuthenticated = auth.currentUser;
+
+    const register = <li><button onClick={openRegister}>Register</button></li>;
+    const login = <li><button onClick={openLogin}>Log In</button></li>;
+
+    const greeting = auth.currentUser ? <li><span>{auth.currentUser.email}</span></li> : <></>;
+    const logout = <li><button onClick={logOut}>Log Out</button></li>;
 
     return (
         <div>
@@ -48,15 +58,10 @@ function AccountBar() {
                     <li>
                         Account
                     </li>
-                    <li>
-                        <button onClick={openRegister}>Register</button>
-                    </li>
-                    <li>
-                        <button onClick={openLogin}>Log In</button>
-                    </li>
-                    <li>
-                        <button onClick={logOut}>Log Out</button>
-                    </li>
+                    { !isAuthenticated && register }
+                    { !isAuthenticated && login }
+                    { isAuthenticated && greeting }
+                    { isAuthenticated && logout }
                 </ul>
             </div>
         </div>

@@ -1,6 +1,7 @@
 import './AddGame.css';
 import React, {useState} from "react";
 import Modal from "../../../modal/Modal";
+import { auth } from '../../../Firebase';
 
 const AddGame = (props) => {
     const initialUserInput = {
@@ -10,7 +11,7 @@ const AddGame = (props) => {
         'image-url': '',
         'currently-playing': false,
         'game-completed': false,
-
+        'user-id': auth.currentUser.email
     };
     const [userInput, setUserInput] = useState(initialUserInput);
     const [isValid, setIsValid] = useState(true);
@@ -45,7 +46,8 @@ const AddGame = (props) => {
                 length: userInput["game-length"],
                 imageUrl: userInput["image-url"],
                 currentlyPlaying: userInput["currently-playing"],
-                completed: userInput["game-completed"]
+                completed: userInput["game-completed"],
+                userId: userInput["user-id"]
             };
             console.log(newGameData);
             props.onSaveGameData(newGameData);

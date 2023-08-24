@@ -6,6 +6,7 @@
     height: 100vh;
     z-index: 10;
     background: var(--color-background);
+    opacity: 80%;
 }
 
 .modal {

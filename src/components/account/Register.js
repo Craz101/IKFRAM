@@ -2,9 +2,10 @@
 import React, { useState } from 'react';
 import { createUserWithEmailAndPassword } from "firebase/auth"
 
-import { auth } from '../../Firebase'; // Import the auth instance from Firebase.js
+import { auth } from '../../Firebase';
+import Modal from "../../modal/Modal"; // Import the auth instance from Firebase.js
 
-const RegisterForm = () => {
+const RegisterForm = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -19,7 +20,7 @@ const RegisterForm = () => {
     };
 
     return (
-        <div>
+        <Modal>
             <h2>Register</h2>
             <form onSubmit={handleRegister}>
                 <input
@@ -34,9 +35,10 @@ const RegisterForm = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <button type="submit">Register</button>
+                <button type='submit'>Register</button>
+                <button onClick={props.onClose}>Cancel</button>
             </form>
-        </div>
+        </Modal>
     );
 };
 

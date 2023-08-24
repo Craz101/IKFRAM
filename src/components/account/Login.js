@@ -4,7 +4,7 @@ import {signInWithEmailAndPassword} from "firebase/auth"
 import {auth} from '../../Firebase';
 import Modal from "../../modal/Modal"; // Import the auth instance from Firebase.js
 
-const LoginForm = () => {
+const LoginForm = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -37,6 +37,7 @@ const LoginForm = () => {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                     <button type="submit">Login</button>
+                    <button onClick={props.onClose}>Cancel</button>
                 </form>
             </div>
         </Modal>
