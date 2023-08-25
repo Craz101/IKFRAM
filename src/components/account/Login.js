@@ -14,7 +14,6 @@ const LoginForm = (props) => {
             console.log('Logged in successfully');
             props.onClose();
         } catch (error) {
-            console.log(auth);
             console.error('Error logging in:', error);
         }
     };

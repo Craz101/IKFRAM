@@ -46,7 +46,6 @@ const AddGame = (props) => {
                 currentlyPlaying: userInput["currently-playing"],
                 completed: userInput["game-completed"]
             };
-            console.log(newGameData);
             props.onSaveGameData(newGameData);
             resetHandler();
             props.onClose();

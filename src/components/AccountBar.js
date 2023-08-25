@@ -21,7 +21,6 @@ function AccountBar() {
 
     function handleLogin(loginData) {
         enteredLoginData = loginData;
-        console.log(enteredLoginData);
     }
 
     function openRegister() {
@@ -55,7 +54,7 @@ function AccountBar() {
             <Modal open={loginEntry} onClose={() => setLoginEntry(false)}>
                 <Login
                     onLoginAttempt={handleLogin}
-                    onConfirm={() => closeRegister(false)}
+                    onConfirm={() => closeLogin(false)}
                     onClose={() => closeLogin(false)}
                 />
             </Modal>

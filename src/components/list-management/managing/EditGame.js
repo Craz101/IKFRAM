@@ -50,7 +50,6 @@ const EditGame = (props) => {
                 currentlyPlaying: userInput["currently-playing"],
                 completed: userInput["game-completed"]
             };
-            console.log(editGameData);
             await updateGameHandler(editGameData);
         }
         props.onClose();
