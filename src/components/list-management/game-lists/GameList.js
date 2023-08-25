@@ -51,7 +51,6 @@ function GameList(props) {
             <div className='game-box'>
                 {filteredAndSortedGames.map((game) => (
                     <Game
-                        key={game.id}
                         id={game.id}
                         name={game.name}
                         genre={game.genre}

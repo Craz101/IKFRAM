@@ -2,6 +2,7 @@ import './AccountBar.css';
 import Login from "./account/Login";
 import {useState} from "react";
 import Register from "./account/Register";
+import Modal from '../modal/Modal';
 import { auth } from '../Firebase';
 
 function AccountBar() {
@@ -51,8 +52,21 @@ function AccountBar() {
 
     return (
         <div>
-            {loginEntry && <Login onLoginAttempt={handleLogin} onConfirm={closeLogin}/>}
-            {registerEntry && <Register onRegisterAttempt={handleRegister} onConfirm={closeRegister}/>}
+            <Modal open={loginEntry} onClose={() => setLoginEntry(false)}>
+                <Login
+                    onLoginAttempt={handleLogin}
+                    onConfirm={() => closeRegister(false)}
+                    onClose={() => closeLogin(false)}
+                />
+            </Modal>
+
+            <Modal open={registerEntry} onClose={() => setRegisterEntry(false)}>
+                <Register
+                    onRegisterAttempt={handleRegister}
+                    onConfirm={() => closeRegister(false)}
+                    onClose={() => closeRegister(false)}
+                />
+            </Modal>
             <div className='nav'>
                 <ul>
                     <li>

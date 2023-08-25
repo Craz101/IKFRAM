@@ -6,7 +6,7 @@
     height: 100vh;
     z-index: 10;
     background: var(--color-background);
-    opacity: 80%;
+    opacity: 0.8;
 }
 
 .modal {
@@ -17,3 +17,65 @@
     z-index: 100;
     overflow: hidden;
 }
+
+.new-game {
+    background-color: var(--color-background);
+    padding: 1rem;
+    margin: 2rem auto;
+    width: 66rem;
+    max-width: 95%;
+    text-align: center;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+    color: var(--text-color);
+}
+
+.new-game button {
+    padding: 8px 16px;
+    background-color: var(--main-color);
+    color: var(--text-color);
+    border: none;
+    transition: transform 0.1s;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+.new-game button.alternative:hover,
+.new-game button.alternative:active {
+    background-color: #ddb3f8;
+}
+
+.new-game__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    text-align: left;
+}
+
+.new-game__control label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+    text-align: center;
+}
+
+.new-game__control input {
+    font: inherit;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 20rem;
+    max-width: 100%;
+}
+
+.submit-button {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    gap: 15px;}

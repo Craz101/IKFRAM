@@ -2,6 +2,7 @@ import './App.css';
 import React, {useEffect, useState} from "react";
 import ListManagement from "./components/list-management/ListManagement";
 import {auth} from "./Firebase";
+import AccountBar from "./components/AccountBar";
 
 
 function App() {
@@ -20,7 +21,14 @@ function App() {
     }, []);
 
     return (
-        <ListManagement/>
+        <React.Fragment>
+            <div className='account-bar'>
+                <AccountBar/>
+            </div>
+            {!user ? <div className='mention-login'>
+                <h2>Please log in</h2></div> : null}
+            {user ? <ListManagement/> : null}
+        </React.Fragment>
     );
 }
 

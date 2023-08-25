@@ -25,6 +25,11 @@
   color: white;
 }
 
+.account-bar {
+  background: var(--main-color);
+  display: flex;
+}
+
 .app-content {
   padding: 16px;
   width: auto;
@@ -52,6 +57,11 @@ select {
   border-color: var(--color-background);
   color: var(--text-color);
 
+}
+
+.mention-login {
+  padding: 20px;
+  color: var(--text-color);
 }
 
 @keyframes App-logo-spin {
