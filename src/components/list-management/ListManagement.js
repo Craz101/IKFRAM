@@ -42,7 +42,7 @@ function ListManagement() {
     }, []);
 
     useEffect( () => {
-        fetchGameListHandler().then(r => {});
+        fetchGameListHandler().then(() => {});
     }, [fetchGameListHandler]);
 
     async function storeGameHandler(game) {

@@ -1,5 +1,5 @@
 import './Game.css';
-import React, {useContext, useRef, useState} from "react";
+import React, {useContext, useState} from "react";
 import EditGame from "../managing/EditGame";
 import logo from "../../../resources/Placeholder.png";
 import GameListContext from "../../../context/GameListContext";
@@ -11,7 +11,7 @@ function Game(props) {
 
     function closeEditGameModal() {
         setEditGameModalOpen(false);
-        ctx.onListChange().then(r => {});
+        ctx.onListChange().then(() => {});
     }
 
     return (

@@ -74,7 +74,7 @@ const EditGame = (props) => {
         }
     }
 
-    async function deleteGameHandler(game) {
+    async function deleteGameHandler() {
         try {
             // https://ikfram-6bb34-default-rtdb.europe-west1.firebasedatabase.app/gamelist/-NcOPSZBP4DCxmvH45SH
             const response = await fetch('https://ikfram-6bb34-default-rtdb.europe-west1.firebasedatabase.app/' + auth.currentUser.uid + '/gamelist/' + props.props.id + '.json', {
